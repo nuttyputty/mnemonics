@@ -31,9 +31,28 @@ class Mnemonic {
     return Mnemonic._private(words);
   }
 
+  factory Mnemonic.fromAcronym(String acronym) {
+    if (acronym.length != 4) {
+      throw 'Only 4 letter Mnemonics are supported';
+    }
+
+    if (acronym.toUpperCase().contains('X')) {
+      throw 'The letter X is not supported';
+    }
+
+    final random = Random();
+    final adjective =
+        _randomWord(_filteredByLetter(adjectives, acronym[0]), random);
+    final noun = _randomWord(_filteredByLetter(nouns, acronym[1]), random);
+    final verb = _randomWord(_filteredByLetter(verbs, acronym[2]), random);
+    final adverb = _randomWord(_filteredByLetter(adverbs, acronym[3]), random);
+
+    return Mnemonic._private([adjective, noun, verb, adverb]);
+  }
+
   @override
   String toString() {
-    return '$acronym - $words';
+    return '$acronym: ${words.join(' ')}';
   }
 
   @override
@@ -49,6 +68,14 @@ class Mnemonic {
   static String _randomWord(List<String> list, Random random) {
     final index = random.nextInt(list.length);
     return list[index];
+  }
+
+  static List<String> _filteredByLetter(List<String> words, String letter) {
+    assert(letter.length == 1);
+
+    return words
+        .where((word) => word.startsWith(letter.toLowerCase()))
+        .toList(growable: false);
   }
 
   static List<String> get adjectives => [

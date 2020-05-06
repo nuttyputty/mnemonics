@@ -22,3 +22,6 @@ The first class will automatically generate a new mnemonic for you and the secon
 
 The MnemonicDisplay widget will respect your app's current theme.
 
+You can also create mnemonics from four letter codes.  The only caveat is that the letter X is not supported.
+`Mnemonic.fromAcronym('Test')` will work but `Mnemonic.fromAcronym('Exit')` will throw and exception.
+
