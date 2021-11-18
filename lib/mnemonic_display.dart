@@ -14,7 +14,7 @@ class MnemonicDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColor = color ?? Theme.of(context).textTheme.title.color;
+    final textColor = color ?? Theme.of(context).textTheme.headline6.color;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -28,7 +28,7 @@ class MnemonicDisplay extends StatelessWidget {
               mnemonic.acronym,
               style: Theme.of(context)
                   .textTheme
-                  .display1
+                  .headline4
                   .copyWith(color: textColor),
             ),
           ),

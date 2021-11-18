@@ -40,13 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           MnemonicDisplay(mnemonic: mnemonic),
-          RaisedButton(
-              child: Text('Regenerate'),
-              onPressed: () {
-                setState(() {
+          ElevatedButton(
+            child: Text('Regenerate'),
+            onPressed: () {
+              setState(
+                () {
                   mnemonic = Mnemonic();
-                });
-              })
+                },
+              );
+            },
+          )
         ],
       )),
       // This trailing comma makes auto-formatting nicer for build methods.

@@ -1,8 +1,6 @@
 name: mnemonic
 description: Package for generating four letter Mnemonics
 version: 0.0.1
-author:
-homepage:
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
