@@ -3,18 +3,18 @@ import 'package:mnemonic/mnemonic.dart';
 
 class MnemonicDisplay extends StatelessWidget {
   final Mnemonic mnemonic;
-  final Color color;
+  final Color? color;
 
   const MnemonicDisplay({
-    Key key,
-    @required this.mnemonic,
+    Key? key,
+    required this.mnemonic,
     this.color,
   })  : assert(mnemonic != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final textColor = color ?? Theme.of(context).textTheme.headline6.color;
+    final textColor = color ?? Theme.of(context).textTheme.headline6!.color!;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -28,7 +28,7 @@ class MnemonicDisplay extends StatelessWidget {
               mnemonic.acronym,
               style: Theme.of(context)
                   .textTheme
-                  .headline4
+                  .headline4!
                   .copyWith(color: textColor),
             ),
           ),

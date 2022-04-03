@@ -26,7 +26,7 @@ void main() {
 
   test('Acroynms with an X fail gracefully', () {
     final word = 'EXIT';
-    Mnemonic mnemonic;
+    Mnemonic? mnemonic;
 
     try {
       mnemonic = Mnemonic.fromAcronym(word);
